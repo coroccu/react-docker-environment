@@ -1,0 +1,14 @@
+version: '3'
+services:
+  react-fe:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: react-fe
+    volumes:
+      - ./react-project:/usr/src/app
+    # working_dir: /usr/src/app/sample-app-typescript
+    command: sh -c "yarn install && yarn start"
+    tty: true
+    ports:
+      - 3000:3000
